@@ -17,7 +17,7 @@ export default class House {
         <div class="card">
           <img class="card-img-top" src="${this.imgUrl}" alt="House imgage">
           <div class="card-body">
-            <h5 class="card-title">${this.price} Year: ${this.year}</h5>
+            <h5 class="card-title">Price:${this.price} <br>Year: ${this.year}</h5>
             <h6 class="card-text">Levels: ${this.levels} Bedrooms: ${this.bedrooms} Bathrooms: ${this.bathrooms}</h6>
             <p>${this.description}</p>
             <button class="btn btn-info" onclick="app.controllers.houseController.bid('${this._id}')">Place Bid</button>

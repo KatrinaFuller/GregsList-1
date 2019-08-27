@@ -115,7 +115,50 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <br>
 
+        <!-- job section -->
+        <div class="row">
+            <div class="col-12">
+                <h1>Jobs!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form class="d-flex" onsubmit="app.controllers.houseController.addJob(event)">
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" class="form-control" id="company" placeholder="Company Name" name="company">
+                        <button class="btn btn-success" type="submit">Create</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Job Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="Job Title" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="hours">Hours</label>
+                        <input type="number" class="form-control" id="hours" placeholder="Number of Hours" name="hours">
+                    </div>
+                    <div class="form-group">
+                        <label for="rate">Rate</label>
+                        <input type="number" class="form-control" id="rate" placeholder="Pay Rate" name="rate">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" placeholder="Description"
+                            name="description">
+                    </div>
+                </form>
+            </div>
+            <div class="col-12">
+                <h3>Available Jobs</h3>
+                <hr>
+                <div class="row" id="jobs-cards">
+
+                </div>
+            </div>
+        </div>
 
     </div>
 
