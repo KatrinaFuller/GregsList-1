@@ -10,6 +10,18 @@ let _state = {
   houses: []
 }
 
+//NOTE methods to run when a given property in state changes
+let _subscribers = {
+  houses: []
+}
+
+function _setState(propName, data) {
+  //NOTE add the data to the state
+  _state[propName] = data
+  //NOTE run every subscriber function that is watching that data
+  _subscribers[propName].forEach(fn => fn());
+}
+
 
 //Public
 export default class HouseService {
@@ -19,5 +31,16 @@ export default class HouseService {
 
   get Houses() {
     return _state.houses.map(h => new House(h))
+  }
+
+  getApiHouses() {
+    _houseApi.get()
+      .then(res => {
+        let housesData = res.data.data.map(h => new House(h))
+        _setState('houses', housesData)
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 }

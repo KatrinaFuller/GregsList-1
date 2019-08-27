@@ -62,7 +62,52 @@
             </div>
         </main>
 
+        <hr>
+        <br>
+
         <!-- House Section -->
+        <div class="row">
+            <div class="col-12">
+                <h1>Houses!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <form onsubmit="app.controllers.houseController.addHouse(event)">
+                    <div class="form-group">
+                        <label for="img">Image Url</label>
+                        <input type="text" class="form-control" id="img" placeholder="Image Url" name="imgUrl">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price" placeholder="Price" name="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="number" class="form-control" id="year" placeholder="Year" name="year">
+                    </div>
+                    <div class="form-group">
+                        <label for="levels">Levels</label>
+                        <input type="number" class="form-control" id="levels" placeholder="Levels" name="levels">
+                    </div>
+                    <div class="form-group">
+                        <label for="bedrooms">Bedrooms</label>
+                        <input type="number" class="form-control" id="bedrooms" placeholder="Bedrooms" name="bedrooms">
+                    </div>
+                    <div class="form-group">
+                        <label for="bathrooms">Bathrooms</label>
+                        <input type="number" class="form-control" id="bathrooms" placeholder="Bathrooms"
+                            name="bathrooms">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" placeholder="Description"
+                            name="description">
+                    </div>
+                </form>
+            </div>
+        </div>
+
 
     </div>
 
