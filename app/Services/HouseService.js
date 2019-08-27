@@ -1,8 +1,9 @@
 import House from "../Models/House.js";
 
 // @ts-ignore
+//putting the house API and using axios to get the http
 let _houseApi = axios.create({
-  baseURL: "http://bcw-sandbox.herokuapp.com/api/houses"
+  baseURL: "http://bcw-sandbox.herokuapp.com/api/houses" //the url for the server the houses is on
 })
 
 //Private
@@ -11,6 +12,7 @@ let _state = {
 }
 
 //NOTE methods to run when a given property in state changes
+// subscribers need to match what is in the state
 let _subscribers = {
   houses: []
 }
@@ -34,6 +36,7 @@ export default class HouseService {
   }
 
   get Houses() {
+    // making a whole new copy of the houses that we can change 
     return _state.houses.map(h => new House(h))
   }
 

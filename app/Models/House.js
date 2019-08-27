@@ -1,5 +1,6 @@
 
 export default class House {
+  //setting what a house is
   constructor(data) {
     this._id = data._id
     this.imgUrl = data.imgUrl
@@ -12,6 +13,7 @@ export default class House {
   }
 
   get Template() {
+    // making the template for how I want the House card to look
     return `
       <div class="col-3">
         <div class="card">

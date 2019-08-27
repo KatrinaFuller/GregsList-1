@@ -76,7 +76,7 @@ export default class JobService {
     let job = _state.jobs.find(j => j._id == id)
     job.price++
 
-    _jobApi.put(id, { price: job.price })
+    _jobApi.put(id, { price: job.rate })
       .then(res => {
         _setState('jobs', _state.jobs)
       })
