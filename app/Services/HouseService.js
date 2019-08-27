@@ -58,4 +58,16 @@ export default class HouseService {
         console.error(err)
       })
   }
+
+  deleteHouse(id) {
+    _houseApi.delete(id)
+      .then(res => {
+        let index = _state.houses.findIndex(house => house._id == id)
+        _state.houses.splice(index, 1)
+        _setState('houses', _state.houses)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
 }

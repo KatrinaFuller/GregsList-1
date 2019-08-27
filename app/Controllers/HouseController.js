@@ -37,4 +37,10 @@ export default class HouseController {
     _houseService.addHouse(data)
     form.reset()
   }
+
+  delete(id) {
+    if (window.confirm("Are you sure?")) {
+      _houseService.deleteHouse(id)
+    }
+  }
 }
