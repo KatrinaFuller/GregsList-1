@@ -71,4 +71,14 @@ export default class JobService {
         console.error(err)
       })
   }
+
+  bid(id) {
+    let job = _state.jobs.find(j => j._id == id)
+    job.price++
+
+    _jobApi.put(id, { price: job.price })
+      .then(res => {
+        _setState('jobs', _state.jobs)
+      })
+  }
 }

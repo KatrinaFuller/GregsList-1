@@ -39,4 +39,8 @@ export default class JobController {
       _jobService.deleteJob(id)
     }
   }
+
+  bid(id) {
+    _jobService.bid(id)
+  }
 }
