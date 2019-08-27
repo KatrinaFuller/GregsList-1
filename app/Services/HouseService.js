@@ -1,5 +1,9 @@
 import House from "../Models/House.js";
 
+// @ts-ignore
+let _houseApi = axios.create({
+  baseURL: "http://bcw-sandbox.herokuapp.com/api/houses"
+})
 
 //Private
 let _state = {
