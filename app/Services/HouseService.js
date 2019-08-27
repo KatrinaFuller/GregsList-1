@@ -70,4 +70,14 @@ export default class HouseService {
         console.error(err)
       })
   }
+
+  bid(id) {
+    let house = _state.houses.find(h => h._id == id)
+    house.price++
+
+    _houseApi.put(id, { price: house.price })
+      .then(res => {
+        _setState('houses', _state.houses)
+      })
+  }
 }
