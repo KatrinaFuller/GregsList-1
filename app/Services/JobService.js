@@ -1,5 +1,6 @@
 import Job from "../Models/Job.js";
 
+// @ts-ignore
 let _jobApi = axios.create({
   baseURL: "http://bcw-sandbox.herokuapp.com/api/jobs"
 })
@@ -25,10 +26,37 @@ function _setState(propName, data) {
 //Public
 export default class JobService {
   constructor() {
-    console.log("hello from job service")
+    // console.log("hello from job service")
+  }
+
+  //NOTE adds the subscriber function to the array based on the property it is watching
+  addSubscriber(propName, fn) {
+    _subscribers[propName].push(fn)
   }
 
   get Jobs() {
     return _state.jobs.map(j => new Job(j))
+  }
+
+  getApiJobs() {
+    _jobApi.get()
+      .then(res => {
+        let jobsData = res.data.data.map(j => new Job(j))
+        _setState('jobs', jobsData)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
+
+  addJob(data) {
+    _jobApi.post('', data)
+      .then(res => {
+        _state.jobs.push(res.data.data)
+        _setState('jobs', _state.jobs)
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 }
