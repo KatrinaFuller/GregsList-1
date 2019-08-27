@@ -59,4 +59,16 @@ export default class JobService {
         console.error(err)
       })
   }
+
+  deleteJob(id) {
+    _jobApi.delete(id)
+      .then(res => {
+        let index = _state.jobs.findIndex(job => job._id == id)
+        _state.jobs.splice(index, 1)
+        _setState('jobs', _state.jobs)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
 }

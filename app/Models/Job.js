@@ -18,7 +18,7 @@ export default class Job {
                     <p class="card-text">Hours: ${this.hours} Rate: ${this.rate}</p>
                     <p><sm>Description: ${this.description}</sm></p>
                     <button class="btn btn-info" onclick="app.controllers.carCtrl.bid('${this._id}')">Bid</button>
-                    <button class="btn btn-danger" onclick="app.controllers.carCtrl.delete('${this._id}')">Delete Car</button>
+                    <button class="btn btn-danger" onclick="app.controllers.carCtrl.delete('${this._id}')">Delete Job</button>
                 </div >
             </div >
         </div >

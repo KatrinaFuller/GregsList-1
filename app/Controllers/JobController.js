@@ -33,4 +33,10 @@ export default class JobController {
     _jobService.addJob(data)
     form.reset()
   }
+
+  delete(id) {
+    if (window.confirm('Are you sure?')) {
+      _jobService.deleteJob(id)
+    }
+  }
 }
