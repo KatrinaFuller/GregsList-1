@@ -1,7 +1,7 @@
 import Car from "../Models/Car.js";
 
 let _carApi = axios.create({
-    baseURL: 'http://bcw-sandbox.herokuapp.com/api/cars'
+    baseURL: '//localhost:3000/api/cars/'
 })
 
 
@@ -38,7 +38,7 @@ export default class CarService {
     getApiCars() {
         _carApi.get()
             .then(res => {
-                let carsData = res.data.data.map(c => new Car(c))
+                let carsData = res.data.map(c => new Car(c))
                 _setState('cars', carsData)
             })
             .catch(err => {
@@ -50,7 +50,7 @@ export default class CarService {
         _carApi.post('', data)
             .then(res => {
                 // this.getApiCars()
-                _state.cars.push(res.data.data)
+                _state.cars.push(res.data)
                 _setState('cars', _state.cars)
             })
             .catch(err => {

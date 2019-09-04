@@ -3,7 +3,8 @@ import House from "../Models/House.js";
 // @ts-ignore
 //putting the house API and using axios to get the http
 let _houseApi = axios.create({
-  baseURL: "http://bcw-sandbox.herokuapp.com/api/houses" //the url for the server the houses is on
+  // baseURL: "http://bcw-sandbox.herokuapp.com/api/houses" //the url for the server the houses is on
+  baseURL: "//localhost:3000/api/houses"
 })
 
 //Private
@@ -43,7 +44,7 @@ export default class HouseService {
   getApiHouses() {
     _houseApi.get()
       .then(res => {
-        let housesData = res.data.data.map(h => new House(h))
+        let housesData = res.data.map(h => new House(h))
         _setState('houses', housesData)
       })
       .catch(err => {
@@ -54,7 +55,7 @@ export default class HouseService {
   addHouse(data) {
     _houseApi.post('', data)
       .then(res => {
-        _state.houses.push(res.data.data)
+        _state.houses.push(res.data)
         _setState('houses', _state.houses)
       })
       .catch(err => {
