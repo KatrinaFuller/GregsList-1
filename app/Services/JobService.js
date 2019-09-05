@@ -2,7 +2,7 @@ import Job from "../Models/Job.js";
 
 // @ts-ignore
 let _jobApi = axios.create({
-  baseURL: "http://bcw-sandbox.herokuapp.com/api/jobs"
+  baseURL: "//localhost:3000/api/jobs"
 })
 
 //Private
@@ -41,7 +41,7 @@ export default class JobService {
   getApiJobs() {
     _jobApi.get()
       .then(res => {
-        let jobsData = res.data.data.map(j => new Job(j))
+        let jobsData = res.data.map(j => new Job(j))
         _setState('jobs', jobsData)
       })
       .catch(err => {
@@ -52,7 +52,7 @@ export default class JobService {
   addJob(data) {
     _jobApi.post('', data)
       .then(res => {
-        _state.jobs.push(res.data.data)
+        _state.jobs.push(res.data)
         _setState('jobs', _state.jobs)
       })
       .catch(err => {

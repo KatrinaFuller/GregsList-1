@@ -24,8 +24,8 @@ export default class JobController {
     e.preventDefault()
     let form = e.target
     let data = {
-      company: form.company.value,
       jobTitle: form.jobTitle.value,
+      company: form.company.value,
       hours: form.hours.value,
       rate: form.rate.value,
       description: form.description.value
@@ -35,6 +35,8 @@ export default class JobController {
   }
 
   delete(id) {
+    console.log("made it here")
+
     if (window.confirm('Are you sure?')) {
       _jobService.deleteJob(id)
     }
